@@ -1,0 +1,5 @@
+package com.example.lattice.repository;
+
+public interface LatticeRepository {
+
+}

@@ -1,0 +1,7 @@
+package com.example.lattice.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface LatticeRepository extends JpaRepository<LatticeEntity, Long>{
+
+}

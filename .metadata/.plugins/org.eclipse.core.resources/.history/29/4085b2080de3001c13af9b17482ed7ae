@@ -1,0 +1,45 @@
+package com.example.task.controlller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.task.entity.LatticeEntity;
+import com.example.task.service.LatticeService;
+
+@RestController
+public class LatticeController {
+	@Autowired
+	LatticeService latticeService;
+	@GetMapping("/l1")  
+	private List<LatticeEntity> getAllBooks()   
+	{  
+	return latticeService.getAllLattice();  
+	}  
+	// Add a user
+	@PostMapping("/l1")
+	private long savelattice(@RequestBody LatticeEntity l1) {
+		latticeService.save(l1);
+		return l1.getId();
+	}
+	// delete a user
+	@DeleteMapping("/l1/{l1id}")
+	private void deleteLattice(@PathVariable("l1id") int l1id) {
+		latticeService.delete(l1id);
+	}
+	// update a user
+	@PutMapping("/l1")
+	private LatticeEntity update(@RequestBody LatticeEntity l1) {
+		latticeService.save(l1);
+		return l1;
+	}
+	
+
+}

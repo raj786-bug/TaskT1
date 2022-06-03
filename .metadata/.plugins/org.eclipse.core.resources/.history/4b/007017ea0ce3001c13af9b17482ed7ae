@@ -1,0 +1,38 @@
+package com.example.lattice.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.lattice.repository.LatticeRepository;
+import com.example.task.entity.LatticeEntity;
+
+@Service
+public class LatticeService {
+
+	@Autowired
+	LatticeRepository Lattices;
+	// Get All records
+	public List<LatticeEntity> getAllLattice(){
+		List<LatticeEntity> l1=new ArrayList<LatticeEntity> ();
+		Lattices.findAll().forEach(l2->l1.add(l2));
+		return l1;
+	}
+	// save the paitent
+	public void save(LatticeEntity l1) {
+		Lattices.save(l1);
+		
+	}
+	// update a record
+	public void update(LatticeEntity l1,int liid) {
+		Lattices.save(l1);
+	}
+	// delete a record
+	public void delete(long id) {
+		Lattices.deleteById((long) id);
+		
+	}
+	
+}

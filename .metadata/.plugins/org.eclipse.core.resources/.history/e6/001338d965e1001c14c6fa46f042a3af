@@ -1,0 +1,21 @@
+package com.example.lattice.controlller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.lattice.entity.LatticeEntity;
+import com.example.lattice.service.LatticeService;
+
+@RestController
+public class LatticeController {
+	@Autowired
+	LatticeService latticeService;
+	// Add a user
+	public long savelattice(@RequestBody LatticeEntity l1) {
+		latticeService.save(l1);
+		return l1.getId();
+	}
+	
+
+}

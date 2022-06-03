@@ -1,0 +1,15 @@
+package com.example.lattice.entity;
+
+import javax.persistence.Entity;
+
+@Entity
+@Table("LatticeData")
+public class LatticeEntity {
+	
+	private long id;
+	private String name;
+	private String address;
+	private String email;
+	private long phoneno;
+
+}
